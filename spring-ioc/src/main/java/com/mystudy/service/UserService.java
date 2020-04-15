@@ -1,4 +1,7 @@
 package com.mystudy.service;
 
-public interface UserService {
+import java.util.List;
+
+public interface UserService<T> {
+    List<T> queryAll();
 }

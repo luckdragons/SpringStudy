@@ -9,6 +9,17 @@ public class User implements Serializable {
     private String sex;
     private String addr;
 
+    public User() {
+    }
+
+    public User(Long id, String name, Integer age, String sex, String addr) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.addr = addr;
+    }
+
     public Long getId() {
         return id;
     }

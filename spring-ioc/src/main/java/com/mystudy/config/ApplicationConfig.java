@@ -3,8 +3,10 @@ package com.mystudy.config;
 import com.mystudy.pojo.Dog;
 import com.mystudy.pojo.Person;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 //相当于一个配置文件 applicationcontext.xml
+@ComponentScan(value = "com.mystudy")
 @Configuration
 public class ApplicationConfig {
     @Bean
