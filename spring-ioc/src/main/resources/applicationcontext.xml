@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="com.mystudy.pojo.User" scope="singleton">
+        <property name="id" value="10"/>
+        <property name="name" value="Bing"/>
+        <property name="age" value="18"/>
+        <property name="addr" value="广州"/>
+        <property name="sex" value="男"/>
+    </bean>
+    <bean id="person" class="com.mystudy.pojo.Person">
+        <property name="name" value="LiHongbing"></property>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="dog" class="com.mystudy.pojo.Dog">
+        <constructor-arg name="name" value="大黄"></constructor-arg>
+        <constructor-arg index="1" value="金毛"/>
+        <constructor-arg index="2" value="red"/>
+        <constructor-arg ref="person"/>
+    </bean>
+</beans>
