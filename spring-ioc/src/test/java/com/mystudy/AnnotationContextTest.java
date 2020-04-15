@@ -18,11 +18,19 @@ public class AnnotationContextTest {
         //初始化容器
         context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
     }
+
+    /**
+     * 以注解方式获取bean，默认以方法名为beanid
+     */
     @Test
     public void test(){
         Dog dog = context.getBean("dog", Dog.class);
         System.out.println(dog);
     }
+
+    /**
+     * 获取指定bean的beanId
+     */
     @Test
     public void test2(){
         String[] beanIds = context.getBeanNamesForType(Person.class);
@@ -30,6 +38,10 @@ public class AnnotationContextTest {
             System.out.println(beanId);
         }
     }
+
+    /**
+     * 查看所有注入的Bean
+     */
     @Test
     public void test3(){
         String[] beanNames = context.getBeanDefinitionNames();
