@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="logAspect" class="com.mystudy.LogAspect"/>
+    <bean id="personService" class="com.mystudy.service.impl.PersonServiceImpl"/>
+    <bean id="dogService" class="com.mystudy.service.impl.DogServiceImpl"/>
+    <aop:config>
+        <!--切入点：expression:表达式 execution( * 执行的位置 com.mystudy.xxx.*(..参数))-->
+        <aop:aspect ref="logAspect">
+            <aop:pointcut id="pointcut" expression="execution(* com.mystudy.service.*.*(..))"/>
+            <aop:before method="logBefore" pointcut-ref="pointcut"/>
+            <aop:after method="logAfter" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
