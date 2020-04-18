@@ -1,9 +1,10 @@
 package com.mystudy.service.impl;
 
 import com.mystudy.service.PersonService;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
-
+@Service
 public class PersonServiceImpl implements PersonService {
 
 
