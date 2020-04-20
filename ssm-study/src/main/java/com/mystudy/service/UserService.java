@@ -1,14 +1,15 @@
-package com.mystudy.dao;
+package com.mystudy.service;
 
 import com.mystudy.pojo.User;
 
 import java.util.List;
 
-
-public interface UserMapper {
+public interface UserService {
     User findById(Integer id);
+
     void save(User user);
-    List<User> list();
 
     void delete(Integer id);
+
+    List<User> list();
 }

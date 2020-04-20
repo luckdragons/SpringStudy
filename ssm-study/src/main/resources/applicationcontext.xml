@@ -23,4 +23,11 @@
     <bean id="userMapper" class="com.mystudy.dao.UserMapperImpl">
         <property name="sessionTemplate" ref="sqlSession"/>
     </bean>
+    <bean id="userMapper2" class="com.mystudy.dao.UserMapperImpl2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="userService" class="com.mystudy.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userMapper2"/>
+    </bean>
 </beans>

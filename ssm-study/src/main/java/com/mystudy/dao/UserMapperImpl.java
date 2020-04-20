@@ -26,4 +26,9 @@ public class UserMapperImpl implements UserMapper {
     public List<User> list() {
         return sessionTemplate.getMapper(UserMapper.class).list();
     }
+
+    @Override
+    public void delete(Integer id) {
+        sessionTemplate.getMapper(UserMapper.class).delete(id);
+    }
 }

@@ -13,4 +13,7 @@
             useGeneratedKeys="true">
         insert into `t_user`(name,age,sex,address) values (#{name},#{age},#{sex},#{address})
     </insert>
+    <delete id="delete" parameterType="int">
+        delete from `t_user` where id = ${id}
+    </delete>
 </mapper>
