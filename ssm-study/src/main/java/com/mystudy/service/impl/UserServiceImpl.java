@@ -30,6 +30,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> list() {
+        User user = new User();
+        user.setName("test3");
+        user.setAge(15);
+        user.setSex("女");
+        user.setAddress("广州");
+        save(user);
+        //save(new User());
+        int result = 1/0;
+        delete(1);
         return userDao.list();
     }
 }

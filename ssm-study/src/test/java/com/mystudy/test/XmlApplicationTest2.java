@@ -2,6 +2,7 @@ package com.mystudy.test;
 
 import com.mystudy.dao.UserMapper;
 import com.mystudy.pojo.User;
+import com.mystudy.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -12,10 +13,12 @@ import java.util.List;
 public class XmlApplicationTest2 {
     ApplicationContext context;
     UserMapper userMapper;
+    UserService userService;
     @Before
     public void setup(){
         context = new ClassPathXmlApplicationContext("applicationcontext.xml");
-        userMapper = context.getBean("userMapper2", UserMapper.class);
+        //userMapper = context.getBean("userMapper2", UserMapper.class);
+         userService = context.getBean("userService", UserService.class);
     }
     @Test
     public void testFindById(){
@@ -34,7 +37,7 @@ public class XmlApplicationTest2 {
     }
     @Test
     public void testList(){
-        List<User> userList = userMapper.list();
+        List<User> userList = userService.list();
         userList.forEach(user -> {
             System.out.println(user);
         });
