@@ -10,6 +10,11 @@
     <bean id="logAspect" class="com.mystudy.LogAspect"/>
     <bean id="personService" class="com.mystudy.service.impl.PersonServiceImpl"/>
     <bean id="dogService" class="com.mystudy.service.impl.DogServiceImpl"/>
+    <bean id="women" class="com.mystudy.service.Women" lazy-init="false"/>
+    <bean id="man" class="com.mystudy.service.Man"/>
+    <bean id="lookupShowSex" class="com.mystudy.service.LookUpShowSex">
+        <lookup-method name="getSex" bean="women"/>
+    </bean>
     <aop:config>
         <!--切入点：expression:表达式 execution( * 执行的位置 com.mystudy.xxx.*(..参数))-->
         <aop:aspect ref="logAspect">
